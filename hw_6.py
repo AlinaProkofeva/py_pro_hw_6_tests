@@ -67,6 +67,6 @@ def delete_doc(): # команда, которая спросит номер д�
 
 # print(people())
 # print(shelf())
-    # print(add())
-    # print(delete_doc())
+# print(add())
+# print(delete_doc())
 print(list_())
