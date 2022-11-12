@@ -1,5 +1,4 @@
 from unittest.mock import patch, Mock
-from unittest import TestCase
 import unittest
 from parameterized import parameterized
 

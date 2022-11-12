@@ -1,3 +1,5 @@
+import requests
+
 DOCUMENTS = [
         {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
         {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
@@ -64,9 +66,20 @@ def delete_doc(): # команда, которая спросит номер д�
             return f'Вы удалили документ "{doc_number}" из каталога и полки архива'
     return 'Документа с таким номером в каталоге нет'
 
+'''============================================================================================================='''
 
-# print(people())
-# print(shelf())
-# print(add())
-# print(delete_doc())
-print(list_())
+with open ('C:\\Users\\Алина\\Desktop\\tokens\\token_ya_disc.txt') as file:
+    TOKEN_ya = file.read()
+
+def func_create_folder_ya(token,name):
+    url = 'https://cloud-api.yandex.net/v1/disk/resources'
+    headers = {
+            'Content-Type':'application/json',
+            'Authorization':f'OAuth {token}'
+        }
+    create_folder_params = {
+        'path': f'disk:/{name}'
+    }
+    response = requests.put(url, params=create_folder_params, headers=headers)
+    return response.status_code
+
